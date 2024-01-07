@@ -1,0 +1,15 @@
+image: node:18
+
+pipelines:
+  branches:
+    develop:
+      - step:
+          caches:
+            - node
+          name: Make a release
+          script:
+            - git config --list
+            - echo "Check Remote URL:"
+            - git remote -v
+            - npm i
+            - npx semantic-release
